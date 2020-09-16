@@ -14,8 +14,25 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+    await do_the_thing(message)
+    return
+
+
+async def do_the_thing(message):
+    strings = {'why not both', 'por que no los dos', 'both', 'no los dos', 'por que', 'no los', 'dos', 'los', 'por',
+               'que', 'qué'}
+    msg = message.content.lower()
+    for s in strings:
+        if s in msg:
+            script_dir = os.path.dirname(__file__)
+            rel_path = r"porquenolosdos.gif"
+            abs_file_path = os.path.join(script_dir, rel_path)
+            await message.add_reaction('\U0001F467')
+            await message.add_reaction('\U0001F334')
+            await message.add_reaction('\U0001F389')
+            await message.channel.send('¿Por qué no los dos?', file=discord.File(abs_file_path))
+            return
+
 
 try:
     token = os.environ["DISC_KEY"]
