@@ -21,7 +21,7 @@ async def on_message(message):
     for s in strings:
         if s in msg:
             await do_the_thing(message)
-    return
+            return
 
 
 async def do_the_thing(message):
