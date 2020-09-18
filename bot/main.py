@@ -14,8 +14,8 @@ async def on_message(message):
     if message.author == client.user:
         return
     print(client.user)
-    strings = {'why not both', 'por que no los dos', 'both', 'no los dos', 'por que', 'no los', 'dos', 'los', 'por',
-               'que', 'qué', '<@!755731316766670868>'}
+    strings = {'why not both', 'por que no los dos', 'both', 'no los dos', 'por que', 'no los', 'los dos', 'que no',
+               'por que no', 'qué', '<@!755731316766670868>', '¿', 'not both'}
     print(message.content)
     msg = message.content.lower()
     for s in strings:
